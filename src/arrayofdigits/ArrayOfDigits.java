@@ -1,5 +1,7 @@
 package arrayofdigits;
 
+import java.util.Arrays;
+
 /* Реалізуйте метод toArrayOfDigits: метод приймає натуральне число
 n і повертає масив з його цифрами у зворотному порядку.
 
@@ -14,8 +16,28 @@ Note: якщо число від'ємне, ігноруйте знак -:
 
 Задача */
 public class ArrayOfDigits {
-    public static int[] toArrayOfDigits(int n) {
-        // write code here
-        return null;
+    public static char[] toArrayOfDigits(int n) {
+        StringBuilder a = new StringBuilder(n + "").reverse();
+        //System.out.println(a);
+        //System.out.println(a.length());
+        int length;
+        if (a.charAt(a.length() - 1) == '-') {
+            length = a.length() -1;
+        } else {
+            length = a.length();}
+        char[] array = new char[length];
+        for (int i = 0; i < array.length; i++) {
+                array[i] = a.charAt(i);
+                //System.out.println(a.charAt(i));
+            }
+        System.out.println(Arrays.toString(array));
+        return array;
+    }
+
+    public static void main(String[] args) {
+        toArrayOfDigits(-123);
+        toArrayOfDigits(-12345);
+        toArrayOfDigits(123456789);
+
     }
 }

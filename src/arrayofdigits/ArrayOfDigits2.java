@@ -16,30 +16,33 @@ Note: якщо число від'ємне, ігноруйте знак -:
 
 Задача */
 //Solution use char
-public class ArrayOfDigits {
-    public static char[] toArrayOfDigits(int n) {
-        StringBuilder a = new StringBuilder(n + "").reverse();
-        //System.out.println(a);
-        //System.out.println(a.length());
+public class ArrayOfDigits2 {
+    public static int[] toArrayOfDigits(int n) {
+        if (n < 0) {
+            n = n * -1;
+        }
+        int lengthArray = 0;
+        int m = n;
+        for ( ;m > 10; lengthArray++) {
+            m = m / 10;
+        }
+        int[] array = new int[lengthArray + 1];
 
-        int length;
-        if (a.charAt(a.length() - 1) == '-') {
-            length = a.length() -1;
-        } else {
-            length = a.length();}
-        char[] array = new char[length];
-        for (int i = 0; i < array.length; i++) {
-                array[i] = a.charAt(i);
-                //System.out.println(a.charAt(i));
-            }
+        for (int j = 0; j < array.length; j++) {
+                array[j] = n % 10;
+                n = n / 10;
+        }
         System.out.println(Arrays.toString(array));
         return array;
     }
 
     public static void main(String[] args) {
-        toArrayOfDigits(-123);
-        toArrayOfDigits(-12345);
-        toArrayOfDigits(123456789);
+        toArrayOfDigits(-1);
+        toArrayOfDigits(-12);
+        toArrayOfDigits(123);
+        toArrayOfDigits(-1234);
+        toArrayOfDigits(0);
+        toArrayOfDigits(-123456789);
 
     }
 }

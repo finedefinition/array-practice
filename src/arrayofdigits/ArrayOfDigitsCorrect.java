@@ -15,8 +15,8 @@ Note: якщо число від'ємне, ігноруйте знак -:
 - для n = -123 потрібно повернути [3, 2, 1].
 
 Задача */
-//Solution use char
-public class ArrayOfDigits2 {
+
+public class ArrayOfDigitsCorrect {
     public static int[] toArrayOfDigits(int n) {
         if (n < 0) {
             n = n * -1;

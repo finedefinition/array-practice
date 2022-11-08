@@ -20,7 +20,18 @@ Notes:
 Задача. */
 public class CountOccurrences {
     public static int countOccurrences(String str, String substr) {
-        // write code here
-        return -1;
+        int count = 0;
+
+            for (int i = 0; (i = str.indexOf(substr, i)) != -1; i += substr.length())
+            {
+                count++;
+            }
+        System.out.println(count);
+        return count;
+    }
+
+    public static void main(String[] args) {
+        countOccurrences("ababagalamaga", "ba");
+        countOccurrences("pupidupidupidupidupupidupieee", "du");
     }
 }

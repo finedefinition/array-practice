@@ -22,9 +22,24 @@ package matrixaddition;
 
 Задача */
 
+import java.util.Arrays;
+
 public class MatrixAddition {
     public static int[][] addMatrix(int[][] first, int[][] second) {
-        // write your code here
-        return null;
+        int[][] result = new int[first.length][first[0].length];
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result[i].length; j++) {
+                result[i][j] = first[i][j] + second[i][j];
+            }
+        }
+        System.out.println(result.length);
+        System.out.println(Arrays.deepToString(result));
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[][] first = new int[][] {{1, 2, 3, 4, 5},{15, 14, 13, 12, 11}};
+        int[][] second = new int[][] {{9, 8, 7, 6, 5},{15, 16, 17, 18, 19}};
+        addMatrix(first, second);
     }
 }

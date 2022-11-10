@@ -22,7 +22,36 @@ package isarraypretty;
 
 public class PrettyArray {
     public static boolean isArrayPretty(int[] array) {
-        // write code here
-        return false;
+
+        boolean prettiness = false;
+        int count = 0;
+        if (array.length == 0) {
+            System.out.println("Array is pretty? : " + prettiness);
+            return prettiness;
+        }
+        for (int find = 0; find < array.length; find++) {
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[find] == array[i] + 1 | array[find] == array[i] - 1) {
+                count++;
+            }
+        }
+        }
+        if (count >= array.length) {
+            prettiness = true;
+        }
+        System.out.println("Array is pretty? : " + prettiness);
+        return prettiness;
+    }
+
+
+    public static void main(String[] args) {
+        int[] emptyArray = new int[0];
+        int[] ugly = new int[]{1, 1, 5, 9};
+        int[] pretty = new int[]{2, 10, 3, 9, 8};
+        isArrayPretty(emptyArray);
+        isArrayPretty(ugly);
+        isArrayPretty(pretty);
+
     }
 }
